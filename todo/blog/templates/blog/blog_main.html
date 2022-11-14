@@ -1,0 +1,10 @@
+{% extends 'apps_base_template.html' %}
+{% block title %} Blog {% endblock %}
+{% block content %}
+{% for item in blog %}
+<p>{{ item.title }}</p>
+<p>{{ item.content }}</p>
+<p>{{ item.category }}</p>
+<p>{{ item.publication_date}}</p>
+{% endfor %}
+{% endblock %}

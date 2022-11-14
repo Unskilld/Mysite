@@ -1,0 +1,36 @@
+{% extends 'apps_base_template.html' %}
+{% block title %}
+Todo App
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <h1>Tasks for today</h1>
+            {% for item in ToDoList %}
+            {% if item.is_today %}
+            {% if not item.is_done %}
+            <label class="list-group-item">
+                {{ item.title }} <p>{{ item.context }}</p>
+            </label>
+            {% else %}
+            <label class="list-group-item">
+                {{ item.title }} <p>{{ item.context }}</p>
+            </label>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        </div>
+        <div class="col-6">
+            <h1>Tasks for tomorrow</h1>
+            {% for item in ToDoList %}
+            {% if not item.is_today %}
+            <label class="list-group-item">
+                {{ item.title }} <p> {{ item.context }} </p>
+            </label>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
